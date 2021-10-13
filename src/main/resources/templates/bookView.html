@@ -16,11 +16,11 @@
         <th>ID</th>
         <th>TITLE</th>
         <th>PUBLISHER</th>
+        <th>AUTHOR</th>
     </tr>
     <tr th:each="book : ${books}">
-        <td th:text="${book.id}">123</td>
-        <td th:text="${book.title}">Spring in Action</td>
-        <td th:text="${book.publisher.name}">
+        <td th:each="current : ${bookStat.current}">
+            <span th:text="${current}"></span>
         </td>
     </tr>
 </table>

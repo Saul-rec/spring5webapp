@@ -41,17 +41,17 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
 
         Author eric = new Author("Eric", "Evans");
         Book ddd = new Book("Domain Driven Design", "1234", pub1);
-        Book finesse = new Book("The Art of Academic Finesse","3256",pub1);
-        List<Book> books = new ArrayList<>();
-        books.add(ddd);
-        books.add(finesse);
-        eric.getBooks().addAll(books);
-
+        eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
-        finesse.getAuthors().add(eric);
-
         authorRepo.save(eric);
-        bookRepo.saveAll(books);
+        bookRepo.save(ddd);
+
+        Author eric2 = new Author("Eric", "Evans");
+        Book dd = new Book("The Art of Academic Finesse", "3452", pub1);
+        eric2.getBooks().add(dd);
+        dd.getAuthors().add(eric2);
+        authorRepo.save(eric2);
+        bookRepo.save(dd);
 
         Author rod = new Author("Rod", "Johnson");
         Book noEJB = new Book("J2EE Development Without EJB", "23444", pub2);
@@ -59,5 +59,7 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
         noEJB.getAuthors().add(rod);
         authorRepo.save(rod);
         bookRepo.save(noEJB);
+
+
     }
 }
